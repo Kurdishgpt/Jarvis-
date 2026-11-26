@@ -106,6 +106,28 @@ python main.py
 
 ---
 
+## 📱 Termux (Android)
+
+Termux has a separate **text mode**. It does not launch the desktop interface or use the phone's microphone, camera, files, or app controls. Replies are shown as text from the voice service, so this mode still uses the account's voice-session quota.
+
+**Root access is not required.** These commands install packages in Termux's own environment; the Termux mode does not make root-level or system-wide changes.
+
+1. Download this private repository while signed in to GitHub, or clone it using GitHub access already configured in Termux.
+2. In Termux, change to the extracted repository folder, then install the small Termux dependency set:
+
+```bash
+pkg update
+pkg install python
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements-termux.txt
+python termux.py
+```
+
+The first run asks for the account email and password; password input is hidden. The session token is saved locally in `config/api_keys.json`, which is ignored by Git. To sign in again, run `python termux.py --login`. Type `/quit` to close the chat.
+
+---
+
 ## 📋 Requirements
 
 | Requirement | Details |
